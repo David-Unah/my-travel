@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import Holidays from "./components/Holidays";
+import DataSource from "./components/data";
 
 function App() {
+    const postHolidays = DataSource.map((item) => {
+      return (
+        <Holidays 
+            id={item.id}
+            items={item}
+        />
+      )
+    })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      {postHolidays}
+      
+      
     </div>
   );
 }
